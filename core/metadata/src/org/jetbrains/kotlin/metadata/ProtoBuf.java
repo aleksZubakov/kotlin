@@ -2202,13 +2202,21 @@ public final class ProtoBuf {
         int getArrayElementCount();
 
         /**
-         * <code>optional bool is_unsigned = 10 [default = false];</code>
+         * <code>optional int32 flags = 10 [default = 0];</code>
+         *
+         * <pre>
+         *isUnsigned
+         * </pre>
          */
-        boolean hasIsUnsigned();
+        boolean hasFlags();
         /**
-         * <code>optional bool is_unsigned = 10 [default = false];</code>
+         * <code>optional int32 flags = 10 [default = 0];</code>
+         *
+         * <pre>
+         *isUnsigned
+         * </pre>
          */
-        boolean getIsUnsigned();
+        int getFlags();
       }
       /**
        * Protobuf type {@code org.jetbrains.kotlin.metadata.Annotation.Argument.Value}
@@ -2325,7 +2333,7 @@ public final class ProtoBuf {
                 }
                 case 80: {
                   bitField0_ |= 0x00000100;
-                  isUnsigned_ = input.readBool();
+                  flags_ = input.readInt32();
                   break;
                 }
               }
@@ -2695,19 +2703,27 @@ public final class ProtoBuf {
           return arrayElement_.get(index);
         }
 
-        public static final int IS_UNSIGNED_FIELD_NUMBER = 10;
-        private boolean isUnsigned_;
+        public static final int FLAGS_FIELD_NUMBER = 10;
+        private int flags_;
         /**
-         * <code>optional bool is_unsigned = 10 [default = false];</code>
+         * <code>optional int32 flags = 10 [default = 0];</code>
+         *
+         * <pre>
+         *isUnsigned
+         * </pre>
          */
-        public boolean hasIsUnsigned() {
+        public boolean hasFlags() {
           return ((bitField0_ & 0x00000100) == 0x00000100);
         }
         /**
-         * <code>optional bool is_unsigned = 10 [default = false];</code>
+         * <code>optional int32 flags = 10 [default = 0];</code>
+         *
+         * <pre>
+         *isUnsigned
+         * </pre>
          */
-        public boolean getIsUnsigned() {
-          return isUnsigned_;
+        public int getFlags() {
+          return flags_;
         }
 
         private void initFields() {
@@ -2720,7 +2736,7 @@ public final class ProtoBuf {
           enumValueId_ = 0;
           annotation_ = org.jetbrains.kotlin.metadata.ProtoBuf.Annotation.getDefaultInstance();
           arrayElement_ = java.util.Collections.emptyList();
-          isUnsigned_ = false;
+          flags_ = 0;
         }
         private byte memoizedIsInitialized = -1;
         public final boolean isInitialized() {
@@ -2775,7 +2791,7 @@ public final class ProtoBuf {
             output.writeMessage(9, arrayElement_.get(i));
           }
           if (((bitField0_ & 0x00000100) == 0x00000100)) {
-            output.writeBool(10, isUnsigned_);
+            output.writeInt32(10, flags_);
           }
           output.writeRawBytes(unknownFields);
         }
@@ -2824,7 +2840,7 @@ public final class ProtoBuf {
           }
           if (((bitField0_ & 0x00000100) == 0x00000100)) {
             size += org.jetbrains.kotlin.protobuf.CodedOutputStream
-              .computeBoolSize(10, isUnsigned_);
+              .computeInt32Size(10, flags_);
           }
           size += unknownFields.size();
           memoizedSerializedSize = size;
@@ -2938,7 +2954,7 @@ public final class ProtoBuf {
             bitField0_ = (bitField0_ & ~0x00000080);
             arrayElement_ = java.util.Collections.emptyList();
             bitField0_ = (bitField0_ & ~0x00000100);
-            isUnsigned_ = false;
+            flags_ = 0;
             bitField0_ = (bitField0_ & ~0x00000200);
             return this;
           }
@@ -3003,7 +3019,7 @@ public final class ProtoBuf {
             if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
               to_bitField0_ |= 0x00000100;
             }
-            result.isUnsigned_ = isUnsigned_;
+            result.flags_ = flags_;
             result.bitField0_ = to_bitField0_;
             return result;
           }
@@ -3044,8 +3060,8 @@ public final class ProtoBuf {
               }
               
             }
-            if (other.hasIsUnsigned()) {
-              setIsUnsigned(other.getIsUnsigned());
+            if (other.hasFlags()) {
+              setFlags(other.getFlags());
             }
             setUnknownFields(
                 getUnknownFields().concat(other.unknownFields));
@@ -3539,34 +3555,50 @@ public final class ProtoBuf {
             return this;
           }
 
-          private boolean isUnsigned_ ;
+          private int flags_ ;
           /**
-           * <code>optional bool is_unsigned = 10 [default = false];</code>
+           * <code>optional int32 flags = 10 [default = 0];</code>
+           *
+           * <pre>
+           *isUnsigned
+           * </pre>
            */
-          public boolean hasIsUnsigned() {
+          public boolean hasFlags() {
             return ((bitField0_ & 0x00000200) == 0x00000200);
           }
           /**
-           * <code>optional bool is_unsigned = 10 [default = false];</code>
+           * <code>optional int32 flags = 10 [default = 0];</code>
+           *
+           * <pre>
+           *isUnsigned
+           * </pre>
            */
-          public boolean getIsUnsigned() {
-            return isUnsigned_;
+          public int getFlags() {
+            return flags_;
           }
           /**
-           * <code>optional bool is_unsigned = 10 [default = false];</code>
+           * <code>optional int32 flags = 10 [default = 0];</code>
+           *
+           * <pre>
+           *isUnsigned
+           * </pre>
            */
-          public Builder setIsUnsigned(boolean value) {
+          public Builder setFlags(int value) {
             bitField0_ |= 0x00000200;
-            isUnsigned_ = value;
+            flags_ = value;
             
             return this;
           }
           /**
-           * <code>optional bool is_unsigned = 10 [default = false];</code>
+           * <code>optional int32 flags = 10 [default = 0];</code>
+           *
+           * <pre>
+           *isUnsigned
+           * </pre>
            */
-          public Builder clearIsUnsigned() {
+          public Builder clearFlags() {
             bitField0_ = (bitField0_ & ~0x00000200);
-            isUnsigned_ = false;
+            flags_ = 0;
             
             return this;
           }
